@@ -3,9 +3,9 @@ package it.polito.tdp.gestionale.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Studente {
+public class Studente extends Nodo{
 
-	private List<Corso> corsi;
+	//private List<Corso> corsi;
 	private int matricola;
 	private String cognome;
 	private String nome;
@@ -62,7 +62,7 @@ public class Studente {
 	public void setCds(String cds) {
 		this.cds = cds;
 	}
-
+/*
 	public List<Corso> getCorsi() {
 		if (corsi == null) {
 			return new ArrayList<Corso>();
@@ -73,4 +73,45 @@ public class Studente {
 	public void setCorsi(List<Corso> corsi) {
 		this.corsi = corsi;
 	}
+*/
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((cds == null) ? 0 : cds.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Studente other = (Studente) obj;
+		if (cds == null) {
+			if (other.cds != null)
+				return false;
+		} else if (!cds.equals(other.cds))
+			return false;
+		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return String.format("%s %s, %s", matricola, cognome, nome);
+	}
+	
+	
 }

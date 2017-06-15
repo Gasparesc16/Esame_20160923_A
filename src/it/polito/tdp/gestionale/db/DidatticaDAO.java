@@ -12,12 +12,13 @@ import java.util.Map;
 import it.polito.tdp.gestionale.model.Corso;
 import it.polito.tdp.gestionale.model.Studente;
 
+
 public class DidatticaDAO {
 
 	/*
 	 * Ottengo tutti gli studenti iscritti al Corso
 	 */
-	public void getStudentiIscrittiAlCorso(Corso corso, Map<Integer, Studente> mapStudenti) {
+	public void setStudentiIscrittiAlCorso(Corso corso, Map<Integer, Studente> mapStudenti) {
 		final String sql = "SELECT studente.matricola FROM iscrizione, studente WHERE iscrizione.matricola=studente.matricola AND codins=?";
 
 		List<Studente> studentiIscrittiAlCorso = new ArrayList<Studente>();
@@ -104,5 +105,4 @@ public class DidatticaDAO {
 			throw new RuntimeException("Errore Db");
 		}
 	}
-
 }

@@ -27,14 +27,28 @@ public class DidatticaGestionaleController {
 
 	@FXML
 	void doCorsiFrequentati(ActionEvent event) {
+		
 		txtResult.clear();
-		txtResult.setText("premuto Corsi Frequentati");
+		
+		model.creaGrafo();
+		
+		for(String s: model.getCorsiFrequentati()){
+			
+			txtResult.appendText(s  + "\n");
+			
+			
+		}	
+		
+		
 	}
 	
 	@FXML
 	void doVisualizzaCorsi(ActionEvent event) {
+		
 		txtResult.clear();
 		txtResult.setText("premuto Visualizza Corsi");
+		
+		
 	}
 
 	@FXML
